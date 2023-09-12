@@ -1,0 +1,15 @@
+{
+  "name": "github-actions",
+  "version": "1.0.0",
+  "description": "Learn github actions in playwright",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [
+    "gihubactions"
+  ],
+  "author": "tofiq",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.37.1"
+  }
+}
