@@ -19,7 +19,7 @@
   "scripts": {
     "tests:chrome": "playwright test --config=playwright.config.ts --project=chromium --workers=4",
     "tests:firefox": "playwright test --config=playwright.config.ts --project=firefox --workers=4",
-    "e2e:aws:chrome": "playwright test --config=Production.config.ts --project=chromium --reporter=list,html --workers=2",
+    "e2e:aws:chrome": "playwright test --config=Production.config.ts --project=chromium --reporter=list,html --workers=4",
     "e2e:aws:firefox": "playwright test --config=Production.config.ts --project=firefox --reporter=list --workers=2",
     "e2e:aws1:chrome": "playwright test --config=Production.config.ts --project=chromium --reporter=list --workers=1",
     "e2e:aws1:firefox": "playwright test --config=Production.config.ts --project=firefox --reporter=list --workers=1",
@@ -39,7 +39,7 @@
     "applicant:stage": "npx playwright test ./tests/Applicant.spec.ts -g 'Making Stage an applicant va landing page' --project=chromium --workers=1",
     "happyflow:aws:chrome": "playwright test --config=Production-Happyflow.config.ts --reporter=list --project=chromium --worker=1",
     "happyflow:all": "playwright test --config=Production-Happyflow.config.ts",
-    "happyflow:chrome": "playwright test --config=Production-Happyflow.config.ts --project=chromium --reporter=list,html",
+    "happyflow:chrome": "playwright test --config=Production-Happyflow.config.ts --project=chromium --reporter=list,html --worker=1",
     "happyflow:firefox": "playwright test --config=Production-Happyflow.config.ts --project=firefox --reporter=list,html",
     "happyflow:webkit": "playwright test --config=Production-Happyflow.config.ts --project=webkit --reporter=list,html",
     "happyflow:show-report": "allure generate ./test-results/Reports/HF/Production/allure-results -o ./test-results/Reports/HF/Production/allure-reports --clean && npx allure open ./test-results/Reports/HF/Production/allure-reports",
