@@ -4,7 +4,7 @@
   "description": "Learn github actions in playwright",
   "main": "index.js",
   "scripts": {
-    "tests:chrome": "playwright test --config=playwright.config.ts --project=chromium --workers=4",
+    "tests:git": "playwright test --config=playwright.config.ts --project=chromium --workers=4"
   },
   "keywords": [
     "gihubactions"
