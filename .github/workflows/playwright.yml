@@ -8,6 +8,10 @@ on:
 
 jobs:
   test:
+    strategy:
+      matrix:
+        workers: [4]
+    
     timeout-minutes: 60
     runs-on: ubuntu-latest
 
