@@ -15,7 +15,7 @@ export default async function globalSetup(config: FullConfig) {
     // Token will always refresh on after 60 mins.
 
     //                                        expected mins*mins*miliseconds  
-    if (stats && stats.mtimeMs > new Date().getTime() - 90 * 60 * 1000) {
+    if (stats && stats.mtimeMs > new Date().getTime() - 1) {
         console.log(`\t┌──────────────────────────────────────────────────────────────────────────────────────────────────────┐`);
         console.log(`\t\x1b[38;5;2m\t\t\t[Production] : Sign-In is Skipped because Token is Fresh\x1b[0m`);
         console.log(`\t└──────────────────────────────────────────────────────────────────────────────────────────────────────┘`);
