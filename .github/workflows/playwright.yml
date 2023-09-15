@@ -40,7 +40,7 @@ jobs:
       run: npx playwright install --with-deps
 
     - name: Run Playwright tests
-      run: tests:git
+      run:  npm run tests:git
 
     - name: Upload Playwright report
       uses: actions/upload-artifact@v3
