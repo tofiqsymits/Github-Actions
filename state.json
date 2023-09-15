@@ -1,0 +1,25 @@
+{
+  "cookies": [
+    {
+      "name": "XSRF-TOKEN",
+      "value": "eyJpdiI6InNLaTFnSHB3cWlKQmRZbGFuVDFVOXc9PSIsInZhbHVlIjoiS2loYnNiOUJuRmIyeS9YV3F3b2l1UmV1ZjhVQ0lHcGRtWW5GbUNKaG13eEI3dkszUUptOXh2Z3dVUjZYWElLck5QQTZqbXlDaktQdlVhYUprVm53R3Q4TEFiZS9lcDVMRmJRSjdmTG04UU5wRitNdU1mZmw1NFpzT0pjZGhwMmsiLCJtYWMiOiJlOTRhYmUwNDYyMzU3YjIzZmU3YWM4ZTMzNjE1ODJiMWU2NzlmNmQzNzU5NzAxM2FlYjFhNjNhMWQ1YTQ3NzViIn0%3D",
+      "domain": "recruit.engyj.com",
+      "path": "/",
+      "expires": 1693915019.407372,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "engyj_hr_session",
+      "value": "VQpCQeNmwa75IihvHy7HgWAoy66OVFN6SFo7lx4v",
+      "domain": "recruit.engyj.com",
+      "path": "/",
+      "expires": 1693915019.407474,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": []
+}
