@@ -15,13 +15,12 @@ const config: PlaywrightTestConfig = {
   reporter: [
     ['list'],
     ['html'],
-    ['allure-playwright', { outputFolder: "./test-results/Reports/e2e/Production/allure-results" }]
+    //['allure-playwright', { outputFolder: "./test-results/Reports/e2e/Production/allure-results" }]
   ],
   use: {
     baseURL: 'https://recruit.engyj.com/',
     storageState: './Authentication/Storage State/production-storageState.json',
     actionTimeout: 0,
-    trace: 'retain-on-failure'
   },
   projects: [
     {
