@@ -39,7 +39,7 @@
     "applicant:stage": "npx playwright test ./tests/Applicant.spec.ts -g 'Making Stage an applicant va landing page' --project=chromium --workers=1",
     "happyflow:aws:chrome": "playwright test --config=Production-Happyflow.config.ts --reporter=list --project=chromium --worker=1",
     "happyflow:all": "playwright test --config=Production-Happyflow.config.ts",
-    "happyflow:chrome": "playwright test --config=Production-Happyflow.config.ts --project=chromium --reporter=list,html --worker=1",
+    "happyflow:chrome": "playwright test --config=Production-Happyflow.config.ts --project=chromium --reporter=list,html --worker=2",
     "happyflow:firefox": "playwright test --config=Production-Happyflow.config.ts --project=firefox --reporter=list,html",
     "happyflow:webkit": "playwright test --config=Production-Happyflow.config.ts --project=webkit --reporter=list,html",
     "happyflow:show-report": "allure generate ./test-results/Reports/HF/Production/allure-results -o ./test-results/Reports/HF/Production/allure-reports --clean && npx allure open ./test-results/Reports/HF/Production/allure-reports",
