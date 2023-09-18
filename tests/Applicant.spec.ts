@@ -57,5 +57,5 @@ test.use({
   
 })
 test.only('sample', async ({ page }) => {
-  console.log('applicant_info.a_Name');
+  console.log('hello world');
 })
