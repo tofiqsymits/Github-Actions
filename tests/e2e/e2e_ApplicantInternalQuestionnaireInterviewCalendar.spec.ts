@@ -3,7 +3,7 @@ import { POManager } from "../../Pages/POManager";
 import { applicant_info } from "../../utils/applicant_info";
 
 test.describe.configure({ mode: 'serial' });
-test.use({ viewport: { height: 1280, width: 2000 } });
+test.use({ viewport: { height: 1920, width: 1080 } });
 
 // all variables related to Applicant
 const JOB_TITLE = 'Automate JOB';
