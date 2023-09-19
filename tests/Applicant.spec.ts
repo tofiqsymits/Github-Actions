@@ -57,5 +57,5 @@ test.use({
   
 })
 test.only('sample', async ({ page }) => {
-  console.log('hello world');
+  await page.goto('https:www.google.com')
 })
