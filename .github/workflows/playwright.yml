@@ -1,53 +1,27 @@
 name: Playwright Tests
-
 on:
   push:
-    branches:
-      - main  # Change to your main branch name if needed
+    branches: [ main, master ]
   pull_request:
-    branches:
-      - main  # Change to your main branch name if needed
-
+    branches: [ main, master ]
 jobs:
   test:
+    timeout-minutes: 60
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-
-    - name: Setup Node.js 18
-      uses: actions/setup-node@v3
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
       with:
         node-version: 18
-
-    - name: Check if Playwright browsers are installed
-      run: |
-        if [ ! -d ~/.local/share/ms-playwright ]; then
-          echo "Playwright browsers not found. Installing..."
-          npm ci
-        else
-          echo "Playwright browsers are already installed."
-        fi
-
-    - name: Cache Playwright browsers
-      uses: actions/cache@v3
-      with:
-        path: ~/.local/share/ms-playwright
-        key: playwright-browsers-${{ runner.os }}
-        restore-keys: |
-          playwright-browsers-
-
-    - name: Cache npm dependencies
-      uses: actions/cache@v3
-      with:
-        path: ~/.npm
-        key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-npm-
-
-    - name: Install dependencies (if needed)  
-      run: npm install
-
+    - name: Install dependencies
+      run: npm ci
+    - name: Install Playwright Browsers
+      run: npx playwright install --with-deps
     - name: Run Playwright tests
-      run: npm run happyflow:chrome  
+      run: npx playwright test
+    - uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: playwright-report
+        path: playwright-report/
+        retention-days: 30
