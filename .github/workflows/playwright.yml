@@ -14,10 +14,10 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Setup Node.js 18
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3
       with:
         node-version: 18
 
@@ -31,7 +31,7 @@ jobs:
         fi
 
     - name: Cache Playwright browsers
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: ~/.local/share/ms-playwright
         key: playwright-browsers-${{ runner.os }}
@@ -39,14 +39,14 @@ jobs:
           playwright-browsers-
 
     - name: Cache npm dependencies
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: ~/.npm
         key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-npm-
 
-    - name: Install dependencies (if needed)
+    - name: Install dependencies (if needed)  
       run: npm install
 
     - name: Run Playwright tests
