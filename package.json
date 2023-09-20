@@ -44,7 +44,7 @@
     "happyflow:webkit": "playwright test --config=Production-Happyflow.config.ts --project=webkit --reporter=list,html",
     "happyflow:show-report": "allure generate ./test-results/Reports/HF/Production/allure-results -o ./test-results/Reports/HF/Production/allure-reports --clean && npx allure open ./test-results/Reports/HF/Production/allure-reports",
     "happyflow:stage:all": "playwright test --config=Staging-Happyflow.config.ts --workers=4",
-    "happyflow:stage:chrome": "playwright test --config=Staging-Happyflow.config.ts --project=chromium --reporter=list,html",
+    "happyflow:stage:chrome": "playwright test --config=Staging-Happyflow.config.ts --project=chromium --reporter=list,html --workers=2",
     "happyflow:stage:firefox": "playwright test --config=Staging-Happyflow.config.ts --project=firefox --reporter=list,html",
     "happyflow:stage:webkit": "playwright test --config=Staging-Happyflow.config.ts --project=webkit --reporter=list,html",
     "happyflow:stage:show-report": "allure generate ./test-results/Reports/HF/Staging/allure-results -o ./test-results/Reports/HF/Staging/allure-reports --clean && npx allure open ./test-results/Reports/HF/Staging/allure-reports",
