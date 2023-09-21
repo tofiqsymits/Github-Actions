@@ -37,7 +37,7 @@ jobs:
       run: npx playwright install --with-deps
 
     - name: Run Happyflow Tests In Staging Environment
-      run: npm run happyflow:stage:chrome
+      run: npm run happyflow:chrome
 
     - uses: actions/upload-artifact@v3
       if: always()
