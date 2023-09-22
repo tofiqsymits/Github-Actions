@@ -28,7 +28,7 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
 
-    - name: Run Happyflow Tests In Staging Environment
+    - name: Run Test
       run: npm run e2e:actions:chrome
 
     - uses: actions/upload-artifact@v3

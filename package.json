@@ -19,7 +19,7 @@
   "scripts": {
     "tests:chrome": "playwright test --config=playwright.config.ts --project=chromium --workers=4",
     "tests:firefox": "playwright test --config=playwright.config.ts --project=firefox --workers=4",
-    "e2e:actions:chrome": "playwright test --config=Production.config.ts --project=chromium --reporter=list,html --workers=4",
+    "e2e:actions:chrome": "playwright test --config=Production.config.ts --project=chromium --reporter=list,html --workers=100%",
     "e2e:actions:firefox": "playwright test --config=Production.config.ts --project=firefox --reporter=list --workers=2",
     "e2e:aws1:chrome": "playwright test --config=Production.config.ts --project=chromium --reporter=list --workers=1",
     "e2e:aws1:firefox": "playwright test --config=Production.config.ts --project=firefox --reporter=list --workers=1",
