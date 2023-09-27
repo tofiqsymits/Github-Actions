@@ -118,7 +118,7 @@ export class ApplicantPageTableview {
     private _profile_star_delete_icon: any;
 
     // all locators related to Happyflow System
-    private _pass_fail_noshow_buttons: any;
+    _pass_fail_noshow_buttons: any;
     private _PhoneScreen_Schedule_button: any;
 
     /* ======== ALL LOCATORS RELATED TO ASSERTIONS ======== */
@@ -696,10 +696,8 @@ export class ApplicantPageTableview {
         await this.selectLabels_dropdown.click();
         const random = Math.floor(Math.random() * 5);
         const selected_existingLabel_text = (await this.all_existing_labels_treeitem.nth(random).textContent()).trim();
-
         await this.all_existing_labels_treeitem.nth(random).click();
         await this.applyfilter();
-
         return { selected_existingLabel_text }
     }
 
