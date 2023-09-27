@@ -3,7 +3,7 @@ import { PlaywrightTestConfig, devices } from '@playwright/test';
 const config: PlaywrightTestConfig = {
   testDir: './tests/HappyFlow',
   globalSetup: './Authentication/Setup/StagingSetup.ts',
-  timeout: 5 * 60 * 1000,
+  timeout: 3 * 60 * 1000,
   expect: {
     timeout: 6 * 10 * 1000
   },

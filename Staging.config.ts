@@ -2,7 +2,7 @@ import { PlaywrightTestConfig, devices } from '@playwright/test';
 
 const config: PlaywrightTestConfig = {
   testDir: './tests/e2e',
-  testIgnore: ["e2e_ApplicantInternalQuestionnaireTableview.spec.ts", "e2e_ApplicantInternalQuestionnaireWorkflow.spec.ts"],
+  testIgnore: ["e2e_ApplicantInternalQuestionnaireWorkflow.spec.ts"],
   globalSetup: './Authentication/Setup/StagingSetup.ts',
   timeout: 3 * 60 * 1000,
   expect: {
