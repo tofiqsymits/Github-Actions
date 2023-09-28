@@ -57,5 +57,5 @@ test.use({
   
 })
 test.only('sample', async ({ page }) => {
-  await page.goto('https:www.google.com')
+  console.log('applicant_info.a_Name');
 })
