@@ -17,6 +17,7 @@
     "Automation"
   ],
   "scripts": {
+    "e2e:actions:chrome": "playwright test --config=Production.config.ts --project=chromium --reporter=list --workers=4",
     "tests:chrome": "playwright test --config=playwright.config.ts --project=chromium --workers=4",
     "tests:firefox": "playwright test --config=playwright.config.ts --project=firefox --workers=4",
     
