@@ -9,7 +9,6 @@ import { JobPage } from "./JobPage"
 import { ApplicantCalendarPage } from "./ApplicantCalendarPage";
 import { InterviewCalendarPage } from "./InterviewCalendarPage";
 import { InboxesMailPage } from "../utils/InboxesMailPage";
-import { DashboardPage } from "./DashboardPage";
 
 export class POManager {
 
@@ -25,7 +24,6 @@ export class POManager {
     _applicantcalendarpage: ApplicantCalendarPage;
     _interviewcalendarpage: InterviewCalendarPage;
     _inboxesmailpage: InboxesMailPage;
-    _dashboardpage: DashboardPage;
 
     constructor(page: Page) {
         this._page = page;
@@ -39,7 +37,6 @@ export class POManager {
         this._applicantcalendarpage = new ApplicantCalendarPage(page);
         this._interviewcalendarpage = new InterviewCalendarPage(page);
         this._inboxesmailpage = new InboxesMailPage(page);
-        this._dashboardpage = new DashboardPage(page);
     }
 
 }

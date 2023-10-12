@@ -72,23 +72,23 @@ test.describe('--- EXTERNAL QUESTIONNAIRE E2E - SUIT ---', () => {
     test(`Create New Applicant for Testing "External Questionnaire E2E"`, async ({ browserName, baseURL }) => {
         const POM_private = new POManager(private_page);
 
-        await test.step(`Navigating to Landing Page... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+        await test.step(`Navigating to Landing Page... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
             await POM_private._landinpage.Navigate_to_Landing_Page();
         })
 
-        await test.step(`Getting "Email Address" for Applicant : "${APPLICANT_EMAIL_eqwv}"... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+        await test.step(`Getting "Email Address" for Applicant : "${APPLICANT_EMAIL_eqwv}"... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
             APPLICANT_EMAIL_eqwv = (await POM_private._landinpage.return_emailAddress(baseURL)).selected_Email;
         })
 
-        await test.step(`Filling Applicant's Information... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+        await test.step(`Filling Applicant's Information... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
             await POM_private._landinpage.create_applicant_from_landing_page(APPLICANT_NAME_eqwv, APPLICANT_EMAIL_eqwv);
         })
 
-        await test.step(`Waiting for Applicant : "${APPLICANT_NAME_eqwv}" to be Created Successfully... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+        await test.step(`Waiting for Applicant : "${APPLICANT_NAME_eqwv}" to be Created Successfully... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
             await POM_private._applicantpagewv.waitFor_all_ingoing_processes();
         })
 
-        await test.step(`Validating Assertion with "Alert" div... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+        await test.step(`Validating Assertion with "Alert" div... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
             await expect(private_page.locator("div[role='alert']")).toBeVisible({ timeout: 1 * 60 * 1000 });
         })
 
@@ -97,35 +97,35 @@ test.describe('--- EXTERNAL QUESTIONNAIRE E2E - SUIT ---', () => {
     test(`Change Applicant's Stage to "External Questionnaire E2E"`, async ({ browserName }) => {
         const POM = new POManager(page);
 
-        await test.step(`Navigating to Workflowview Page... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+        await test.step(`Navigating to Workflowview Page... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
             await POM._applicantpagewv.Navigate_to_Workflowview_Page();
         })
 
-        await test.step(`Changing Applicant's Stage to "External Questionnaire E2E" by Swapping... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+        await test.step(`Changing Applicant's Stage to "External Questionnaire E2E" by Swapping... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
             await POM._applicantpagewv.swapApplicant_workflowview_by_name(APPLICANT_NAME_eqwv, EXTERNAL_QUESTIONNAIRE_E2E_Stage);
         })
 
-        await test.step(`Clicking All "Yes" Button in All Modal Popups... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+        await test.step(`Clicking All "Yes" Button in All Modal Popups... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
             await POM._applicantpagewv.click_YES();
         })
 
-        await test.step(`Passing the "Interview Change Status" from Modal... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+        await test.step(`Passing the "Interview Change Status" from Modal... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
             await POM._applicantpagewv.pass_interviewchangestatus();
         })
 
-        await test.step(`Waiting for Changes to be Loaded... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+        await test.step(`Waiting for Changes to be Loaded... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
             await POM._applicantpagewv.waitFor_all_ingoing_processes();
         })
 
-        await test.step(`Waiting for Page to Redirect... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+        await test.step(`Waiting for Page to Redirect... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
             await page.waitForEvent('load');
         })
 
-        await test.step(`Waiting for Contents to Load... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+        await test.step(`Waiting for Contents to Load... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
             await page.waitForLoadState('domcontentloaded');
         })
 
-        await test.step(`Validating Applicant's Stage is Changed to "External Questionnaire E2E"... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+        await test.step(`Validating Applicant's Stage is Changed to "External Questionnaire E2E"... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
             await expect(page.locator(POM._applicantpagewv.prefix_specific_ApplicantName_full_div + APPLICANT_NAME_eqwv + POM._applicantpagewv.suffix_specific_ApplicantName_full_div + POM._applicantpagewv.prefix_specific_ApplicantName_specific_StageName + EXTERNAL_QUESTIONNAIRE_E2E_Stage + POM._applicantpagewv.suffix_specific_ApplicantName_specific_StageName)).toBeVisible();
         })
 
@@ -136,15 +136,15 @@ test.describe('--- EXTERNAL QUESTIONNAIRE E2E - SUIT ---', () => {
         test.beforeAll(async ({ browserName, baseURL }) => {
             const POM_private = new POManager(private_page);
 
-            await test.step(`Navigating to "Inboxes - Mailing Site"... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+            await test.step(`Navigating to "Inboxes - Mailing Site"... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                 await POM_private._inboxesmailpage.Navigate_to_InboxesMail_Page();
             })
 
-            await test.step(`Clicking "Get my first inbox" button... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+            await test.step(`Clicking "Get my first inbox" button... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                 await POM_private._inboxesmailpage.click_on_getMyFirstInbox_button();
             })
 
-            await test.step(`Creating "Mail Inbox"... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+            await test.step(`Creating "Mail Inbox"... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                 await POM_private._inboxesmailpage.create_MailInbox(baseURL);
             })
 
@@ -155,24 +155,24 @@ test.describe('--- EXTERNAL QUESTIONNAIRE E2E - SUIT ---', () => {
             test('Validate Assertions with "Heading" and "Description"', async ({ browserName }) => {
                 const POM_private = new POManager(private_page);
 
-                await test.step(`Clicking Mail Subject : "${EXTERNAL_QUESTIONNAIRE_QUALIFYING_text}"... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Clicking Mail Subject : "${EXTERNAL_QUESTIONNAIRE_QUALIFYING_text}"... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     await POM_private._inboxesmailpage.click_on_MailSubject(EXTERNAL_QUESTIONNAIRE_QUALIFYING_text, APPLICANT_NAME_eqwv);
                 })
 
-                await test.step(`Clicking Mail Link : "${EXTERNAL_QUESTIONNAIRE_QUALIFYING_Link}"... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Clicking Mail Link : "${EXTERNAL_QUESTIONNAIRE_QUALIFYING_Link}"... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     EXTERNAL_QUESTIONNAIRE_QUALIFYING_URL = (await POM_private._inboxesmailpage.click_on_MailLink(EXTERNAL_QUESTIONNAIRE_QUALIFYING_Link)).EXTERNAL_URL;
                 })
 
-                await test.step(`Navigating to "External Questionnaire (Qualifying) Question's URL"... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Navigating to "External Questionnaire (Qualifying) Question's URL"... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     await private_page.goto(EXTERNAL_QUESTIONNAIRE_QUALIFYING_URL, { waitUntil: "networkidle" });
                     await page.waitForLoadState("domcontentloaded");
                 })
 
-                await test.step(`Validating Assertion with Heading... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Validating Assertion with Heading... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     await expect(POM_private._applicantpagewv._heading_externalquestionnaire.getByText(EXTERNAL_QUESTIONNAIRE_QUALIFYING_heading + " " + APPLICANT_NAME_eqwv)).toBeVisible();
                 })
 
-                await test.step(`Validating Assertion with Description... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Validating Assertion with Description... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     await expect(POM_private._applicantpagewv._description_externalquestionnaire.getByText(EXTERNAL_QUESTIONNAIRE_QUALIFYING_description)).toBeVisible();
                 })
 
@@ -181,19 +181,19 @@ test.describe('--- EXTERNAL QUESTIONNAIRE E2E - SUIT ---', () => {
             test(`Fill External Questionnaire (Qualifying) in PRIVATE WINDOW ==> Candidate Perspective`, async ({ browserName }) => {
                 const POM_private = new POManager(private_page);
 
-                await test.step(`Now Filling "External Questionnaire (Qualifying)" Questions... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Now Filling "External Questionnaire (Qualifying)" Questions... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     await POM_private._applicantpagewv.externalQuestionnaire_Qualifying();
                 })
 
-                await test.step(`Waiting for Page to Redirect... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Waiting for Page to Redirect... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     await private_page.waitForEvent("load");
                 })
 
-                await test.step(`Navigating to "External Questionnaire (Qualifying) Question's URL"... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Navigating to "External Questionnaire (Qualifying) Question's URL"... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     await private_page.goto(EXTERNAL_QUESTIONNAIRE_QUALIFYING_URL, { waitUntil: "networkidle" });
                 })
 
-                await test.step(`Validating "External Questionnaire (Qualifying)" Questions are Filled... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Validating "External Questionnaire (Qualifying)" Questions are Filled... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     await expect(private_page).toHaveTitle(AFTER_SUBMISSION_TITLE);
                 })
 
@@ -206,28 +206,28 @@ test.describe('--- EXTERNAL QUESTIONNAIRE E2E - SUIT ---', () => {
             test('Validate Assertions with "Heading" and "Description"', async ({ browserName }) => {
                 const POM_private = new POManager(private_page);
 
-                await test.step(`Navigating to "Inboxes - Mailing Site"... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Navigating to "Inboxes - Mailing Site"... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     await POM_private._inboxesmailpage.Navigate_to_InboxesMail_Page();
                 })
 
-                await test.step(`Clicking Mail Subject : "${EXTERNAL_QUESTIONNAIRE_UNQUALIFYING_text}"... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Clicking Mail Subject : "${EXTERNAL_QUESTIONNAIRE_UNQUALIFYING_text}"... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     await POM_private._inboxesmailpage.click_on_MailSubject(EXTERNAL_QUESTIONNAIRE_UNQUALIFYING_text, APPLICANT_NAME_eqwv);
                 })
 
-                await test.step(`Clicking Mail Link : "${EXTERNAL_QUESTIONNAIRE_UNQUALIFYING_Link}"... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Clicking Mail Link : "${EXTERNAL_QUESTIONNAIRE_UNQUALIFYING_Link}"... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     EXTERNAL_QUESTIONNAIRE_UNQUALIFYING_URL = (await POM_private._inboxesmailpage.click_on_MailLink(EXTERNAL_QUESTIONNAIRE_UNQUALIFYING_Link)).EXTERNAL_URL;
                 })
 
-                await test.step(`Navigating to "External Questionnaire (Unqualifying) Question's URL"... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Navigating to "External Questionnaire (Unqualifying) Question's URL"... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     await private_page.goto(EXTERNAL_QUESTIONNAIRE_UNQUALIFYING_URL, { waitUntil: "networkidle" });
                     await page.waitForLoadState("domcontentloaded");
                 })
 
-                await test.step(`Validating Assertion with Heading... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Validating Assertion with Heading... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     await expect(POM_private._applicantpagewv._heading_externalquestionnaire.getByText(EXTERNAL_QUESTIONNAIRE_UNQUALIFYING_heading + " " + APPLICANT_NAME_eqwv)).toBeVisible();
                 })
 
-                await test.step(`Validating Assertion with Description... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Validating Assertion with Description... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     await expect(POM_private._applicantpagewv._description_externalquestionnaire.getByText(EXTERNAL_QUESTIONNAIRE_UNQUALIFYING_description)).toBeVisible();
                 })
 
@@ -236,19 +236,19 @@ test.describe('--- EXTERNAL QUESTIONNAIRE E2E - SUIT ---', () => {
             test(`Fill External Questionnaire (Unqualifying) in PRIVATE WINDOW ==> Candidate Perspective`, async ({ browserName }) => {
                 const POM_private = new POManager(private_page);
 
-                await test.step(`Now Filling "External Questionnaire (Unqualifying)" Questions... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Now Filling "External Questionnaire (Unqualifying)" Questions... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     await POM_private._applicantpagewv.externalQuestionnaire_UnQualifying();
                 })
 
-                await test.step(`Waiting for Page to Redirect... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Waiting for Page to Redirect... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     await private_page.waitForEvent("load");
                 })
 
-                await test.step(`Navigating to "External Questionnaire (Unqualifying) Question's URL"... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Navigating to "External Questionnaire (Unqualifying) Question's URL"... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     await private_page.goto(EXTERNAL_QUESTIONNAIRE_UNQUALIFYING_URL, { waitUntil: "networkidle" });
                 })
 
-                await test.step(`Validating "External Questionnaire (Unqualifying)" Questions are Filled... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Validating "External Questionnaire (Unqualifying)" Questions are Filled... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     await expect(private_page).toHaveTitle(AFTER_SUBMISSION_TITLE);
                 })
 
@@ -261,28 +261,28 @@ test.describe('--- EXTERNAL QUESTIONNAIRE E2E - SUIT ---', () => {
             test('Validate Assertions with "Heading" and "Description"', async ({ browserName }) => {
                 const POM_private = new POManager(private_page);
 
-                await test.step(`Navigating to "Inboxes - Mailing Site"... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Navigating to "Inboxes - Mailing Site"... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     await POM_private._inboxesmailpage.Navigate_to_InboxesMail_Page();
                 })
 
-                await test.step(`Clicking Mail Subject : "${EXTERNAL_QUESTIONNAIRE_QUALIFYING_AND_UNQUALIFYING_text}"... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Clicking Mail Subject : "${EXTERNAL_QUESTIONNAIRE_QUALIFYING_AND_UNQUALIFYING_text}"... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     await POM_private._inboxesmailpage.click_on_MailSubject(EXTERNAL_QUESTIONNAIRE_QUALIFYING_AND_UNQUALIFYING_text, APPLICANT_NAME_eqwv);
                 })
 
-                await test.step(`Clicking Mail Link : "${EXTERNAL_QUESTIONNAIRE_QUALIFYING_AND_UNQUALIFYING_Link}"... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Clicking Mail Link : "${EXTERNAL_QUESTIONNAIRE_QUALIFYING_AND_UNQUALIFYING_Link}"... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     EXTERNAL_QUESTIONNAIRE_QUALIFYING_AND_UNQUALIFYING_URL = (await POM_private._inboxesmailpage.click_on_MailLink(EXTERNAL_QUESTIONNAIRE_QUALIFYING_AND_UNQUALIFYING_Link)).EXTERNAL_URL;
                 })
 
-                await test.step(`Navigating to "External Questionnaire (Qualifying & Unqualifying) Question's URL"... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Navigating to "External Questionnaire (Qualifying & Unqualifying) Question's URL"... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     await private_page.goto(EXTERNAL_QUESTIONNAIRE_QUALIFYING_AND_UNQUALIFYING_URL, { waitUntil: "networkidle" });
                     await page.waitForLoadState("domcontentloaded");
                 })
 
-                await test.step(`Validating Assertion with Heading... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Validating Assertion with Heading... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     await expect(POM_private._applicantpagewv._heading_externalquestionnaire.getByText(EXTERNAL_QUESTIONNAIRE_QUALIFYING_AND_UNQUALIFYING_heading + " " + APPLICANT_NAME_eqwv)).toBeVisible();
                 })
 
-                await test.step(`Validating Assertion with Description... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Validating Assertion with Description... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     await expect(POM_private._applicantpagewv._description_externalquestionnaire.getByText(EXTERNAL_QUESTIONNAIRE_QUALIFYING_AND_UNQUALIFYING_description)).toBeVisible();
                 })
 
@@ -291,19 +291,19 @@ test.describe('--- EXTERNAL QUESTIONNAIRE E2E - SUIT ---', () => {
             test(`Fill External Questionnaire (Qualifying & Unqualifying) in PRIVATE WINDOW ==> Candidate Perspective`, async ({ browserName }) => {
                 const POM_private = new POManager(private_page);
 
-                await test.step(`Now Filling "External Questionnaire (Qualifying & Unqualifying)" Questions... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Now Filling "External Questionnaire (Qualifying & Unqualifying)" Questions... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     await POM_private._applicantpagewv.externalQuestionnaire_Q_UQ();
                 })
 
-                await test.step(`Waiting for Page to Redirect... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Waiting for Page to Redirect... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     await private_page.waitForEvent("load");
                 })
 
-                await test.step(`Navigating to "External Questionnaire (Qualifying & Unqualifying) Question's URL"... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Navigating to "External Questionnaire (Qualifying & Unqualifying) Question's URL"... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     await private_page.goto(EXTERNAL_QUESTIONNAIRE_QUALIFYING_AND_UNQUALIFYING_URL, { waitUntil: "networkidle" });
                 })
 
-                await test.step(`Validating "External Questionnaire (Qualifying & Unqualifying)" Questions are Filled... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Validating "External Questionnaire (Qualifying & Unqualifying)" Questions are Filled... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     await expect(private_page).toHaveTitle(AFTER_SUBMISSION_TITLE);
                 })
 
@@ -316,28 +316,28 @@ test.describe('--- EXTERNAL QUESTIONNAIRE E2E - SUIT ---', () => {
             test('Validate Assertions with "Heading" and "Description"', async ({ browserName }) => {
                 const POM_private = new POManager(private_page);
 
-                await test.step(`Navigating to "Inboxes - Mailing Site"... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Navigating to "Inboxes - Mailing Site"... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     await POM_private._inboxesmailpage.Navigate_to_InboxesMail_Page();
                 })
 
-                await test.step(`Clicking Mail Subject : "${EXTERNAL_QUESTIONNAIRE_TRIGGER_text}"... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Clicking Mail Subject : "${EXTERNAL_QUESTIONNAIRE_TRIGGER_text}"... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     await POM_private._inboxesmailpage.click_on_MailSubject(EXTERNAL_QUESTIONNAIRE_TRIGGER_text, APPLICANT_NAME_eqwv);
                 })
 
-                await test.step(`Clicking Mail Link : "${EXTERNAL_QUESTIONNAIRE_TRIGGER_Link}"... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Clicking Mail Link : "${EXTERNAL_QUESTIONNAIRE_TRIGGER_Link}"... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     EXTERNAL_QUESTIONNAIRE_TRIGGER_URL = (await POM_private._inboxesmailpage.click_on_MailLink(EXTERNAL_QUESTIONNAIRE_TRIGGER_Link)).EXTERNAL_URL;
                 })
 
-                await test.step(`Navigating to "External Questionnaire (Trigger) Question's URL"... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Navigating to "External Questionnaire (Trigger) Question's URL"... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     await private_page.goto(EXTERNAL_QUESTIONNAIRE_TRIGGER_URL, { waitUntil: "networkidle" });
                     await page.waitForLoadState("domcontentloaded");
                 })
 
-                await test.step(`Validating Assertion with Heading... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Validating Assertion with Heading... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     await expect(POM_private._applicantpagewv._heading_externalquestionnaire.getByText(EXTERNAL_QUESTIONNAIRE_TRIGGER_heading + " " + APPLICANT_NAME_eqwv)).toBeVisible();
                 })
 
-                await test.step(`Validating Assertion with Description... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Validating Assertion with Description... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     await expect(POM_private._applicantpagewv._description_externalquestionnaire.getByText(EXTERNAL_QUESTIONNAIRE_TRIGGER_description)).toBeVisible();
                 })
 
@@ -346,19 +346,19 @@ test.describe('--- EXTERNAL QUESTIONNAIRE E2E - SUIT ---', () => {
             test(`Fill External Questionnaire (Trigger) in PRIVATE WINDOW ==> Candidate Perspective`, async ({ browserName }) => {
                 const POM_private = new POManager(private_page);
 
-                await test.step(`Now Filling "External Questionnaire (Trigger)" Questions... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Now Filling "External Questionnaire (Trigger)" Questions... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     await POM_private._applicantpagewv.externalQuestionnaire_Trigger();
                 })
 
-                await test.step(`Waiting for Page to Redirect... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Waiting for Page to Redirect... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     await private_page.waitForEvent("load");
                 })
 
-                await test.step(`Navigating to "External Questionnaire (Trigger) Question's URL"... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Navigating to "External Questionnaire (Trigger) Question's URL"... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     await private_page.goto(EXTERNAL_QUESTIONNAIRE_TRIGGER_URL, { waitUntil: "networkidle" });
                 })
 
-                await test.step(`Validating "External Questionnaire (Trigger)" Questions are Filled... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Validating "External Questionnaire (Trigger)" Questions are Filled... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     await expect(private_page).toHaveTitle(AFTER_SUBMISSION_TITLE);
                 })
 
@@ -367,15 +367,15 @@ test.describe('--- EXTERNAL QUESTIONNAIRE E2E - SUIT ---', () => {
             test('Validate Applicant Stage is Changed to "Hired" => Trigger Testing', async ({ browserName }) => {
                 const POM = new POManager(page);
 
-                await test.step(`Refreshing the Page... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Refreshing the Page... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     await page.reload();
                 })
 
-                await test.step(`Waiting for Network to be "idle"... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Waiting for Network to be "idle"... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     await page.waitForLoadState("networkidle");
                 })
 
-                await test.step(`Validating Applicant's Stage is Changed to "Hired"... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+                await test.step(`Validating Applicant's Stage is Changed to "Hired"... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
                     await expect(page.locator(POM._applicantpagewv.prefix_specific_ApplicantName_full_div + APPLICANT_NAME_eqwv + POM._applicantpagewv.suffix_specific_ApplicantName_full_div + POM._applicantpagewv.prefix_specific_ApplicantName_specific_StageName + HIRED_Stage + POM._applicantpagewv.suffix_specific_ApplicantName_specific_StageName)).toBeVisible();
                 })
 

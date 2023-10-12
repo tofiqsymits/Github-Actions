@@ -77,8 +77,8 @@ export class LandingPage {
 
     // this function will take baseURL as input, and will create email address for Production or Staging and return it
     async return_emailAddress(BASEURL: any) {
-        const production_MailInbox: string = "recruit.engyj.production@robot-mail.com";
-        const staging_MailInbox: string = "recruit.engyj.staging@robot-mail.com";
+        const production_MailInbox: string = "rec_eng_prod_env@inboxbear.com";
+        const staging_MailInbox: string = "rec_eng_stg_env@inboxbear.com";
         let selected_Email: string;
 
         if (BASEURL.includes('stage') == true) {

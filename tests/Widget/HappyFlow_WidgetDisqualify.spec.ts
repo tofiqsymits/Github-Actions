@@ -30,19 +30,19 @@ test.describe(`Happy Flow With Widget Suit - Disqualifying`, () => {
     test('Widget Data Fill With "No" Buttons', async ({ browserName }) => {
         const POM_private = new POManager(private_page);
 
-        await test.step(`Navigating to Site : "Recruitment SEO Company"... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+        await test.step(`Navigating to Site : "Recruitment SEO Company"... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
             await POM_private._widgetHandle.workflow_URL();
         })
 
-        await test.step(`Filling Widget Data with Each "NO" Button... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+        await test.step(`Filling Widget Data with Each "NO" Button... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
             await POM_private._widgetHandle.widget_fill_disqualified(APPLICANT_NAME_wdq, APPLICANT_EMAIL_wdq);
         })
 
-        await test.step(`Waiting for Network to be "idle"... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+        await test.step(`Waiting for Network to be "idle"... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
             await POM_private._applicantpagetv.waitFor_all_ingoing_processes();
         })
 
-        await test.step(`Validating Disqualifying Text... via \x1b[32m"[${browserName}]"\x1b[0m`, async () => {
+        await test.step(`Validating Disqualifying Text... via \x1b[32m[${browserName}]\x1b[0m`, async () => {
             await expect(POM_private._widgetHandle._frame_loc.getByText('We will review your questions and get in touch for the next steps either through')).toBeVisible();
         })
 
